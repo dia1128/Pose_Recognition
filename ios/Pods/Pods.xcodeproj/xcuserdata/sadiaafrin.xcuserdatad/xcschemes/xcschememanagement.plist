@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TensorFlowLite.xcscheme</key>
+		<key>TensorFlowLiteC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

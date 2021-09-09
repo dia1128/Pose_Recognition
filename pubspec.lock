@@ -21,7 +21,7 @@ packages:
       name: camera
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.7+4"
+    version: "0.5.8+7"
   characters:
     dependency: transitive
     description:
@@ -232,7 +232,7 @@ packages:
       name: tflite
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "1.1.1"
   typed_data:
     dependency: transitive
     description:

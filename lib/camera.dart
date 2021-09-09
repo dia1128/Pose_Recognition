@@ -119,16 +119,17 @@ class _CameraState extends State<Camera> {
   }
 
   ///Writing into file with buffer
-  Future <void> writeActionFile(double x, double y, double score, String part ) async {
+  Future <void> writeActionFile(String part, String x, String y, String score) async {
 
     // save data to string buffer because strings are immutable
     var buffer = new StringBuffer();
 
     //Loop through the list
-    buffer.write("X: "+ x.toString());
-    buffer.write("," + "Y: " + y.toString());
-    buffer.write("," + "Score :" + score.toString());
-    buffer.write("," + "Part :" + part.toString());
+    buffer.write("Part :" + part);
+    buffer.write(","+ "X: "+ x);
+    buffer.write("," + "Y: " + y);
+    buffer.write("," + "Score :" + score);
+
 
     print(buffer.toString());
     actionFile.writeAsString(buffer.toString());
@@ -180,27 +181,28 @@ class _CameraState extends State<Camera> {
                         resultMap.values.elementAt(1)); //keypoints only
                     List <List<dynamic>> rows = List<
                         List<dynamic>>(); //List to store data
-                    //print(internal);
+
                     for (var i = 0; i < internal.length; i ++) {
                       Map internalMap = Map<String, dynamic>.from(
                           internal[i]); // converting each keypoint to map type again
                       List<dynamic> row = List();
-                      row.add(internalMap.values.elementAt(0)); //y
-                      row.add(internalMap.values.elementAt(1)); //score
-                      row.add(internalMap.values.elementAt(2)); //x
-                      row.add(internalMap.values.elementAt(3)); //part
+
+                      row.add(internalMap["part"]); //part
+                      row.add(internalMap["x"]); //x
+                      row.add(internalMap["y"]); //y
+                      row.add(internalMap["score"]); //score
                       rows.add(row);
                     }
-                    //print(rows);
+                    print(rows);
                      for (var j = 0; j<rows.length; j++){
-                       double y = rows[j][0];
-                       double score = rows[j][1];
-                       double x = rows[j][2];
-                       String part = rows[j][3];
-                       //print(x.toString()+ " " + y.toString() + " "+ score.toString() + " " +  part);
+                       String part = rows[j][0].toString();
+                       String x = rows[j][1].toString();
+                       String y = rows[j][2].toString();
+                       String score = rows[j][3].toString();
 
                        await createActionTextFile();//creating the  file
-                       await writeActionFile(x,y,score,part); //writing data into the file
+                       await writeActionFile(part,x,y,score); //writing data into the file
+
 
 
 

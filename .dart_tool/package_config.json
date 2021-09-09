@@ -15,9 +15,9 @@
     },
     {
       "name": "camera",
-      "rootUri": "file:///Users/sadiaafrin/Desktop/Development/flutter/.pub-cache/hosted/pub.dartlang.org/camera-0.5.7+4",
+      "rootUri": "file:///Users/sadiaafrin/Desktop/Development/flutter/.pub-cache/hosted/pub.dartlang.org/camera-0.5.8+7",
       "packageUri": "lib/",
-      "languageVersion": "2.0"
+      "languageVersion": "2.1"
     },
     {
       "name": "characters",
@@ -201,9 +201,9 @@
     },
     {
       "name": "tflite",
-      "rootUri": "file:///Users/sadiaafrin/Desktop/Development/flutter/.pub-cache/hosted/pub.dartlang.org/tflite-1.0.4",
+      "rootUri": "file:///Users/sadiaafrin/Desktop/Development/flutter/.pub-cache/hosted/pub.dartlang.org/tflite-1.1.1",
       "packageUri": "lib/",
-      "languageVersion": "2.0"
+      "languageVersion": "2.1"
     },
     {
       "name": "typed_data",
@@ -236,7 +236,7 @@
       "languageVersion": "2.0"
     }
   ],
-  "generated": "2021-09-09T05:44:08.608248Z",
+  "generated": "2021-09-09T18:11:45.891746Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

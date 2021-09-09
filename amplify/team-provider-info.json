@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-poserecognition-staging-62505-authRole",
+      "UnauthRoleArn": "arn:aws:iam::323387750821:role/amplify-poserecognition-staging-62505-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::323387750821:role/amplify-poserecognition-staging-62505-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-poserecognition-staging-62505-deployment",
+      "UnauthRoleName": "amplify-poserecognition-staging-62505-unauthRole",
+      "StackName": "amplify-poserecognition-staging-62505",
+      "StackId": "arn:aws:cloudformation:us-east-2:323387750821:stack/amplify-poserecognition-staging-62505/ac3603d0-1136-11ec-8e36-0695abdeb064",
+      "AmplifyAppId": "doi0wz1ylti1c"
+    }
+  }
+}

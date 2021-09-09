@@ -1,6 +1,6 @@
 {
   "name": "tflite",
-  "version": "1.0.4",
+  "version": "1.1.1",
   "summary": "A Flutter plugin for accessing TensorFlow Lite.",
   "description": "A Flutter plugin for accessing TensorFlow Lite. Supports both iOS and Android.",
   "homepage": "https://github.com/shaqian/flutter_tflite",
@@ -19,12 +19,12 @@
     "Flutter": [
 
     ],
-    "TensorFlowLite": [
+    "TensorFlowLiteC": [
 
     ]
   },
   "xcconfig": {
-    "USER_HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/Headers/Private\" \"${PODS_ROOT}/Headers/Private/tflite\" \"${PODS_ROOT}/Headers/Public\" \"${PODS_ROOT}/Headers/Public/Flutter\" \"${PODS_ROOT}/Headers/Public/TensorFlowLite/tensorflow_lite\" \"${PODS_ROOT}/Headers/Public/tflite\" \"${PODS_ROOT}/TensorFlowLite/Frameworks/tensorflow_lite.framework/Headers\""
+    "USER_HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/Headers/Private\" \"${PODS_ROOT}/Headers/Private/tflite\" \"${PODS_ROOT}/Headers/Public\" \"${PODS_ROOT}/Headers/Public/Flutter\" \"${PODS_ROOT}/Headers/Public/TensorFlowLite/tensorflow_lite\" \"${PODS_ROOT}/Headers/Public/tflite\" \"${PODS_ROOT}/TensorFlowLite/Frameworks/tensorflow_lite.framework/Headers\" \"${PODS_ROOT}/TensorFlowLiteC/Frameworks/TensorFlowLiteC.framework/Headers\""
   },
   "platforms": {
     "ios": "9.0"

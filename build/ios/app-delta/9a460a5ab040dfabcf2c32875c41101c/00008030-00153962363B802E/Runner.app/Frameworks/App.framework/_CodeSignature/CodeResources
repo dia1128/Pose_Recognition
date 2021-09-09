@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES</key>
 		<data>
-		8srRgvhoUQMJxY9k9kslx6xqeU0=
+		vh2CXK+jEgjS1hky46AbSmwe7O0=
 		</data>
 		<key>flutter_assets/assets/posenet_mv1_075_float_from_checkpoints.tflite</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		J0SyOuX1XuL6uIQEk08uITsoBkc=
+		fXBmyO7GkgbIn7NJI8l2H5fbHFs=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -73,11 +73,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8srRgvhoUQMJxY9k9kslx6xqeU0=
+			vh2CXK+jEgjS1hky46AbSmwe7O0=
 			</data>
 			<key>hash2</key>
 			<data>
-			NN4Zhe6uGR5pqvxFF0aF8HpmBMp90xpEY4pwUcOEm+0=
+			O+XCvzJPDsEETiOXMMaWI/kLLyu/0h2vschLbqJXIhI=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/posenet_mv1_075_float_from_checkpoints.tflite</key>
@@ -117,11 +117,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			J0SyOuX1XuL6uIQEk08uITsoBkc=
+			fXBmyO7GkgbIn7NJI8l2H5fbHFs=
 			</data>
 			<key>hash2</key>
 			<data>
-			FX9D/bcCTJm39vomTfvAJI9AtwhZLBeO7g/w8XxO85E=
+			gKHtwKGmddapX9vMxMf56in04otnVQKJIWwrhIrp10M=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
