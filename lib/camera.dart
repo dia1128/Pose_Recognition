@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:tflite/tflite.dart';
@@ -5,6 +7,8 @@ import 'dart:math' as math;
 
 import 'models.dart';
 import 'home.dart';
+import 'package:sortedmap/sortedmap.dart';
+import 'package:path_provider/path_provider.dart';
 
 typedef void Callback(List<dynamic> list, int h, int w);
 
@@ -19,12 +23,20 @@ class Camera extends StatefulWidget {
   _CameraState createState() => new _CameraState();
 }
 
+/// Holds values related to an action entry
+
+
 class _CameraState extends State<Camera> {
   CameraController controller;
   bool isDetecting = false;
   List result = [];
   List<CameraDescription> cam;
 
+  /// for CSV
+  File actionFile;
+
+ ///
+  ///
   @override
   void initState() {
     super.initState();
@@ -87,6 +99,45 @@ class _CameraState extends State<Camera> {
     controller?.dispose();
     super.dispose();
   }
+  /// Create the csv file used to store the action data. This
+  /// function does not write to the file, only creates it
+  /// Returns: A file that is created asynchronously
+  ///
+  Future<File> createActionTextFile() async {
+    // reset the action table
+    // get the app's storage directory
+    final Directory extDir = await getApplicationDocumentsDirectory();
+    // path in local files
+    final String dirPath = '${extDir.path}/pose_recognition_app/text_action_files';
+    await Directory(dirPath).create(recursive: true);
+    final String filePath = '$dirPath/' + DateTime.now().toString() + ".csv";
+    //print("FILE PATH: " + filePath);
+    // The file name
+    File file = File(filePath);
+    actionFile = file;
+    return file;
+  }
+
+  ///Writing into file with buffer
+  Future <void> writeActionFile(double x, double y, double score, String part ) async {
+
+    // save data to string buffer because strings are immutable
+    var buffer = new StringBuffer();
+
+    //Loop through the list
+    buffer.write("X: "+ x.toString());
+    buffer.write("," + "Y: " + y.toString());
+    buffer.write("," + "Score :" + score.toString());
+    buffer.write("," + "Part :" + part.toString());
+
+    print(buffer.toString());
+    actionFile.writeAsString(buffer.toString());
+
+
+  }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -107,26 +158,29 @@ class _CameraState extends State<Camera> {
       child: Column(
         children: <Widget>[
           Expanded(
-              flex: 90,
+              flex: 80,
               child: CameraPreview(controller)
 
           ),
           Expanded(
               flex: 10,
               child: FloatingActionButton(
+                heroTag: "btn1",
                 backgroundColor: const Color(0xff03dac6),
                 foregroundColor: Colors.black,
                 mini: true,
-                onPressed: () async {
-                  if(result.isNotEmpty) {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => HomePage(this.cam)));
+                 onPressed: () async {
+                  if(result != null) {
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (context) => HomePage(this.cam))
+                    // );
+                    print("Submit");
                     Map resultMap = Map<String, dynamic>.from(result[0]);
                     Map internal = Map<int, dynamic>.from(
                         resultMap.values.elementAt(1)); //keypoints only
                     List <List<dynamic>> rows = List<
                         List<dynamic>>(); //List to store data
-                    print(internal);
+                    //print(internal);
                     for (var i = 0; i < internal.length; i ++) {
                       Map internalMap = Map<String, dynamic>.from(
                           internal[i]); // converting each keypoint to map type again
@@ -137,20 +191,48 @@ class _CameraState extends State<Camera> {
                       row.add(internalMap.values.elementAt(3)); //part
                       rows.add(row);
                     }
-                    print(rows);
+                    //print(rows);
+                     for (var j = 0; j<rows.length; j++){
+                       double y = rows[j][0];
+                       double score = rows[j][1];
+                       double x = rows[j][2];
+                       String part = rows[j][3];
+                       //print(x.toString()+ " " + y.toString() + " "+ score.toString() + " " +  part);
+
+                       await createActionTextFile();//creating the  file
+                       await writeActionFile(x,y,score,part); //writing data into the file
+
+
+
+
+                     }
+
                     //generateCsv(rows);
 
                   }
 
 
-
-
-
                 },
-                child: Icon(Icons.navigate_before),
+                child: Text("Submit"),
               )
 
+          ),
+          Expanded (
+            flex:10,
+              child: FloatingActionButton(
+                heroTag: "btn2",
+                //backgroundColor: const color(Colors.pink),
+                foregroundColor: Colors.pink,
+                onPressed: () {
+
+                  print("stopped");
+                },
+                child: Text("Stop"),
+              )
           )
+
+
+
         ],
       ),
     );
