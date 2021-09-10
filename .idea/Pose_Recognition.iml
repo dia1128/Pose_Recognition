@@ -6,6 +6,12 @@
       <excludeFolder url="file://$MODULE_DIR$/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_auth_cognito/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_auth_cognito/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_auth_cognito/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_auth_cognito/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_auth_cognito/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_auth_cognito/example/build" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_core/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_core/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_core/build" />
@@ -24,6 +30,12 @@
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_flutter/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_flutter/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_flutter/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_storage_s3/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_storage_s3/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_storage_s3/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_storage_s3/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_storage_s3/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/amplify_storage_s3/example/build" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/camera/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/camera/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/camera/build" />

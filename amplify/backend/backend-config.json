@@ -1,24 +1,16 @@
 {
-  "api": {
-    "PoseRecognition": {
-      "service": "AppSync",
+  "auth": {
+    "poserecognition09719a69": {
+      "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "description": "This is an api key"
-            }
-          },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            }
-          ]
-        }
-      }
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "s3pose": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
     }
   }
 }

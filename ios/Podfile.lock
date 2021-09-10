@@ -1,7 +1,58 @@
 PODS:
+  - Amplify (1.13.4):
+    - Amplify/Default (= 1.13.4)
+  - Amplify/Default (1.13.4)
+  - amplify_auth_cognito (0.0.1):
+    - Amplify (~> 1.13.0)
+    - amplify_core
+    - AmplifyPlugins/AWSCognitoAuthPlugin (~> 1.13.0)
+    - Flutter
+    - ObjectMapper
+  - amplify_core (0.0.1):
+    - Flutter
+  - amplify_flutter (0.0.1):
+    - Amplify (~> 1.13.0)
+    - amplify_core
+    - AmplifyPlugins/AWSCognitoAuthPlugin (~> 1.13.0)
+    - AWSPluginsCore (~> 1.13.0)
+    - Flutter
+  - amplify_storage_s3 (0.0.1):
+    - Amplify (~> 1.13.0)
+    - amplify_core
+    - AmplifyPlugins/AWSS3StoragePlugin (~> 1.13.0)
+    - Flutter
+  - AmplifyPlugins/AWSCognitoAuthPlugin (1.13.4):
+    - AWSAuthCore (~> 2.25.0)
+    - AWSCognitoIdentityProvider (~> 2.25.0)
+    - AWSCognitoIdentityProviderASF (~> 2.25.0)
+    - AWSCore (~> 2.25.0)
+    - AWSMobileClient (~> 2.25.0)
+    - AWSPluginsCore (= 1.13.4)
+  - AmplifyPlugins/AWSS3StoragePlugin (1.13.4):
+    - AWSCore (~> 2.25.0)
+    - AWSPluginsCore (= 1.13.4)
+    - AWSS3 (~> 2.25.0)
+  - AWSAuthCore (2.25.0):
+    - AWSCore (= 2.25.0)
+  - AWSCognitoIdentityProvider (2.25.0):
+    - AWSCognitoIdentityProviderASF (= 2.25.0)
+    - AWSCore (= 2.25.0)
+  - AWSCognitoIdentityProviderASF (2.25.0)
+  - AWSCore (2.25.0)
+  - AWSMobileClient (2.25.0):
+    - AWSAuthCore (= 2.25.0)
+    - AWSCognitoIdentityProvider (= 2.25.0)
+    - AWSCognitoIdentityProviderASF (= 2.25.0)
+    - AWSCore (= 2.25.0)
+  - AWSPluginsCore (1.13.4):
+    - Amplify (= 1.13.4)
+    - AWSCore (~> 2.25.0)
+  - AWSS3 (2.25.0):
+    - AWSCore (= 2.25.0)
   - camera (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - ObjectMapper (4.2.0)
   - path_provider (0.0.1):
     - Flutter
   - TensorFlowLiteC (2.2.0)
@@ -10,6 +61,10 @@ PODS:
     - TensorFlowLiteC
 
 DEPENDENCIES:
+  - amplify_auth_cognito (from `.symlinks/plugins/amplify_auth_cognito/ios`)
+  - amplify_core (from `.symlinks/plugins/amplify_core/ios`)
+  - amplify_flutter (from `.symlinks/plugins/amplify_flutter/ios`)
+  - amplify_storage_s3 (from `.symlinks/plugins/amplify_storage_s3/ios`)
   - camera (from `.symlinks/plugins/camera/ios`)
   - Flutter (from `Flutter`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
@@ -17,9 +72,27 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Amplify
+    - AmplifyPlugins
+    - AWSAuthCore
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
+    - AWSCore
+    - AWSMobileClient
+    - AWSPluginsCore
+    - AWSS3
+    - ObjectMapper
     - TensorFlowLiteC
 
 EXTERNAL SOURCES:
+  amplify_auth_cognito:
+    :path: ".symlinks/plugins/amplify_auth_cognito/ios"
+  amplify_core:
+    :path: ".symlinks/plugins/amplify_core/ios"
+  amplify_flutter:
+    :path: ".symlinks/plugins/amplify_flutter/ios"
+  amplify_storage_s3:
+    :path: ".symlinks/plugins/amplify_storage_s3/ios"
   camera:
     :path: ".symlinks/plugins/camera/ios"
   Flutter:
@@ -30,12 +103,26 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/tflite/ios"
 
 SPEC CHECKSUMS:
+  Amplify: 11b9c65b428f4897bbacc64983af94ba4ff187d7
+  amplify_auth_cognito: 595ff4c4c10a5679768932eb151965a64d409d63
+  amplify_core: 8b38d20089fe4f225c14db6892f586bd03824a42
+  amplify_flutter: 3e5ada5600f3657ccbd77f08419eb3aa936b5d4b
+  amplify_storage_s3: 8a8952f8ce8641da90c69d3749d2b92935daaddf
+  AmplifyPlugins: 290f52ebdc10a84af0b0408d52b6153b0806e31f
+  AWSAuthCore: c1ea75ec283e5ac3eb042de21f7ab127ad50de11
+  AWSCognitoIdentityProvider: f52be11a4b2f2e9971ef0559da24e288d5c28869
+  AWSCognitoIdentityProviderASF: d58893fe74d0db1817e77592eed30c4f5b5a2672
+  AWSCore: 9c51a3004e9e91528160ea978fd0c5d92780a45e
+  AWSMobileClient: b4480d4b69b1ae52a76588f74bf9c936f7600e46
+  AWSPluginsCore: c7807376b795c0976065e40bc31de11ac4b2a0f5
+  AWSS3: 2c211728c36d1dbf4d0075d0e8ba317a561bc80c
   camera: a0ca5080336f7af47b88436e5e26da3dee5568f0
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   TensorFlowLiteC: b3ab9e867b0b71052ca102a32a786555b330b02e
   tflite: f0403a894740019d63ab5662253bba5b2dd37296
 
-PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+PODFILE CHECKSUM: ee78c8db3943dcfffb2358086c78ee4ab5799bf3
 
 COCOAPODS: 1.10.2

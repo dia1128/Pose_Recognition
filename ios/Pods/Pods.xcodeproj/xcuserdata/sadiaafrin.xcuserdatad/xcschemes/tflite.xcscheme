@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "96E6C466964DF6E07013178934B41F2B"
-               BuildableName = "libtflite.a"
+               BuildableName = "tflite.framework"
                BlueprintName = "tflite"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

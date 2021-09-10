@@ -10,6 +10,10 @@ import 'home.dart';
 import 'package:sortedmap/sortedmap.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'package:amplify_flutter/amplify.dart';
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_storage_s3/amplify_storage_s3.dart';
+
 typedef void Callback(List<dynamic> list, int h, int w);
 
 class Camera extends StatefulWidget {
@@ -31,6 +35,7 @@ class _CameraState extends State<Camera> {
   bool isDetecting = false;
   List result = [];
   List<CameraDescription> cam;
+  String filePath;
 
   /// for CSV
   File actionFile;
@@ -110,7 +115,7 @@ class _CameraState extends State<Camera> {
     // path in local files
     final String dirPath = '${extDir.path}/pose_recognition_app/text_action_files';
     await Directory(dirPath).create(recursive: true);
-    final String filePath = '$dirPath/' + DateTime.now().toString() + ".csv";
+    final String filePath = '$dirPath/' + DateTime.now().toString();
     //print("FILE PATH: " + filePath);
     // The file name
     File file = File(filePath);
@@ -119,20 +124,20 @@ class _CameraState extends State<Camera> {
   }
 
   ///Writing into file with buffer
-  Future <void> writeActionFile(String part, String x, String y, String score) async {
+  Future <void> writeActionFile(String data) async {
 
     // save data to string buffer because strings are immutable
-    var buffer = new StringBuffer();
+    //var buffer = new StringBuffer();
 
-    //Loop through the list
-    buffer.write("Part :" + part);
-    buffer.write(","+ "X: "+ x);
-    buffer.write("," + "Y: " + y);
-    buffer.write("," + "Score :" + score);
+    // //Loop through the list
+    // buffer.write("Part :" + part);
+    // buffer.write(","+ "X: "+ x);
+    // buffer.write("," + "Y: " + y);
+    // buffer.write("," + "Score :" + score);
 
 
-    print(buffer.toString());
-    actionFile.writeAsString(buffer.toString());
+    //print(data.toString());
+    actionFile.writeAsString(data.toString());
 
 
   }
@@ -194,20 +199,31 @@ class _CameraState extends State<Camera> {
                       rows.add(row);
                     }
                     print(rows);
-                     for (var j = 0; j<rows.length; j++){
-                       String part = rows[j][0].toString();
-                       String x = rows[j][1].toString();
-                       String y = rows[j][2].toString();
-                       String score = rows[j][3].toString();
+                    File txtUpload = await createActionTextFile();
+                    writeActionFile(rows.toString());
+                     // for (var j = 0; j<rows.length; j++){
+                     //   String part = rows[j][0].toString();
+                     //   String x = rows[j][1].toString();
+                     //   String y = rows[j][2].toString();
+                     //   String score = rows[j][3].toString();
+                     //
+                     //   //creating the  file
+                     //   writeActionFile(part,x,y,score); //writing data into the file
+                     //
+                     //
+                     //
+                     // }
+                    try {
+                      final UploadFileResult result = await Amplify.Storage.uploadFile (
 
-                       await createActionTextFile();//creating the  file
-                       await writeActionFile(part,x,y,score); //writing data into the file
+                        local: txtUpload,
+                        key: 'date.txt',
+                      );
+                      print('Successfully uploaded file: ${result.key}');
+                    } on StorageException catch (e) {
+                      print('Error uploading file: $e');
+                    }
 
-
-
-
-
-                     }
 
                     //generateCsv(rows);
 
@@ -228,6 +244,8 @@ class _CameraState extends State<Camera> {
                 onPressed: () {
 
                   print("stopped");
+                  controller.stopImageStream();
+                  setState(() {});
                 },
                 child: Text("Stop"),
               )

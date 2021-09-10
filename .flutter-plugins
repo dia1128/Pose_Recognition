@@ -1,4 +1,8 @@
 # This is a generated file; do not edit or check into version control.
+amplify_auth_cognito=/Users/sadiaafrin/Desktop/Development/flutter/.pub-cache/hosted/pub.dartlang.org/amplify_auth_cognito-0.2.3/
+amplify_core=/Users/sadiaafrin/Desktop/Development/flutter/.pub-cache/hosted/pub.dartlang.org/amplify_core-0.2.3/
+amplify_flutter=/Users/sadiaafrin/Desktop/Development/flutter/.pub-cache/hosted/pub.dartlang.org/amplify_flutter-0.2.3/
+amplify_storage_s3=/Users/sadiaafrin/Desktop/Development/flutter/.pub-cache/hosted/pub.dartlang.org/amplify_storage_s3-0.2.3/
 camera=/Users/sadiaafrin/Desktop/Development/flutter/.pub-cache/hosted/pub.dartlang.org/camera-0.5.8+7/
 path_provider=/Users/sadiaafrin/Desktop/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.3/
 path_provider_linux=/Users/sadiaafrin/Desktop/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.0.2/

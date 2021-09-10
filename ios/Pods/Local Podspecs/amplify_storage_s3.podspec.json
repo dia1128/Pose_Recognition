@@ -1,0 +1,40 @@
+{
+  "name": "amplify_storage_s3",
+  "version": "0.0.1",
+  "summary": "Amplify Flutter AWS S3 Storage plugin",
+  "description": "The Amplify Flutter Storage category plugin using the AWS S3 provider.",
+  "homepage": "http://example.com",
+  "license": {
+    "file": "../LICENSE"
+  },
+  "authors": {
+    "Your Company": "email@example.com"
+  },
+  "source": {
+    "path": "."
+  },
+  "source_files": "Classes/**/*",
+  "dependencies": {
+    "Flutter": [
+
+    ],
+    "Amplify": [
+      "~> 1.13.0"
+    ],
+    "AmplifyPlugins/AWSS3StoragePlugin": [
+      "~> 1.13.0"
+    ],
+    "amplify_core": [
+
+    ]
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
+}

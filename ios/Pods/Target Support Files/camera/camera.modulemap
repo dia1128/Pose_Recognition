@@ -1,4 +1,4 @@
-module camera {
+framework module camera {
   umbrella header "camera-umbrella.h"
 
   export *

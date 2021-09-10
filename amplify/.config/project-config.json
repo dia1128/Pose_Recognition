@@ -1,13 +1,13 @@
 {
-  "providers": [
-    "awscloudformation"
-  ],
   "projectName": "PoseRecognition",
   "version": "3.1",
   "frontend": "flutter",
   "flutter": {
     "config": {
-      "ResDir": "./lib"
+      "ResDir": "./lib/"
     }
-  }
+  },
+  "providers": [
+    "awscloudformation"
+  ]
 }
