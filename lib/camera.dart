@@ -6,12 +6,8 @@ import 'package:tflite/tflite.dart';
 import 'dart:math' as math;
 
 import 'models.dart';
-import 'home.dart';
-import 'package:sortedmap/sortedmap.dart';
 import 'package:path_provider/path_provider.dart';
-
 import 'package:amplify_flutter/amplify.dart';
-import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_storage_s3/amplify_storage_s3.dart';
 
 typedef void Callback(List<dynamic> list, int h, int w);
@@ -84,7 +80,7 @@ class _CameraState extends State<Camera> {
                   for(var i =0; i<recognitions.length; i++){
                     result.add(recognitions[i]);
                   }
-                  //print(result);
+                  print(recognitions);
                 }
 
 
@@ -124,20 +120,29 @@ class _CameraState extends State<Camera> {
   }
 
   ///Writing into file with buffer
-  Future <void> writeActionFile(String data) async {
+  Future <void> writeActionFile(List rows) async {
+    var buffer = new StringBuffer();
+    buffer.write("Part,X,Y,Score");
+    buffer.write("\n");
+    for (var j = 0; j<rows.length; j++){
+      String part = rows[j][0].toString();
+      String x = rows[j][1].toString();
+      String y = rows[j][2].toString();
+      String score = rows[j][3].toString();
 
-    // save data to string buffer because strings are immutable
-    //var buffer = new StringBuffer();
+      //creating the  file
+      //writeActionFile(part,x,y,score); //writing data into the file
+      buffer.write(part);
+      buffer.write(","+x);
+      buffer.write(","+y);
+      buffer.write(","+score);
+      buffer.write("\n");
 
-    // //Loop through the list
-    // buffer.write("Part :" + part);
-    // buffer.write(","+ "X: "+ x);
-    // buffer.write("," + "Y: " + y);
-    // buffer.write("," + "Score :" + score);
+    }
 
 
     //print(data.toString());
-    actionFile.writeAsString(data.toString());
+    actionFile.writeAsString(buffer.toString());
 
 
   }
@@ -200,32 +205,18 @@ class _CameraState extends State<Camera> {
                     }
                     print(rows);
                     File txtUpload = await createActionTextFile();
-                    writeActionFile(rows.toString());
-                     // for (var j = 0; j<rows.length; j++){
-                     //   String part = rows[j][0].toString();
-                     //   String x = rows[j][1].toString();
-                     //   String y = rows[j][2].toString();
-                     //   String score = rows[j][3].toString();
-                     //
-                     //   //creating the  file
-                     //   writeActionFile(part,x,y,score); //writing data into the file
-                     //
-                     //
-                     //
-                     // }
+                    writeActionFile(rows);
+
                     try {
                       final UploadFileResult result = await Amplify.Storage.uploadFile (
 
                         local: txtUpload,
-                        key: 'date.txt',
+                        key: 'Pose.csv',
                       );
                       print('Successfully uploaded file: ${result.key}');
                     } on StorageException catch (e) {
                       print('Error uploading file: $e');
                     }
-
-
-                    //generateCsv(rows);
 
                   }
 
@@ -242,10 +233,12 @@ class _CameraState extends State<Camera> {
                 //backgroundColor: const color(Colors.pink),
                 foregroundColor: Colors.pink,
                 onPressed: () {
-
                   print("stopped");
                   controller.stopImageStream();
                   setState(() {});
+
+
+
                 },
                 child: Text("Stop"),
               )
